@@ -1,0 +1,122 @@
+/* base styles similar to previous, trimmed */ 
+:root{--navy:#042c4b;--lime:#7ac943;--aqua:#00b7c8;--sun:#ffd33d;--bg:#f7fbfc;--card:#fff;--rad:12px;--shadow:0 2px 6px rgba(0,0,0,.06);}*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN',sans-serif;color:var(--navy);background:var(--bg) url('https://www.transparenttextures.com/patterns/white-wall-3.png');}
+img{max-width:100%;border-radius:var(--rad);}a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:auto;padding:0 1.2rem}.flex{display:flex}.between{justify-content:space-between}.align-center{align-items:center}.center{text-align:center}
+.nav{display:flex;list-style:none;gap:1rem}.nav a{padding:.6rem 1rem}.nav a.active{border-bottom:3px solid var(--sun)}
+.site-header{position:sticky;top:0;background:var(--navy);color:#fff;z-index:999}
+.logo{font-weight:700;font-size:1.25rem}
+.hero{color:#fff;padding:7rem 1rem 8rem;text-shadow:0 2px 4px rgba(0,0,0,.2);position:relative}
+.hero-bg{background:url('https://images.unsplash.com/photo-1526406915894-1f78a14ec5b3?auto=format&fit=crop&w=1400&q=80') center/cover}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,183,200,.85),rgba(122,201,67,.82))}
+.hero-bg>*{position:relative}
+.hero-title{font-size:2.4rem;font-weight:700}.lead{margin-top:.8rem;font-size:1.1rem;max-width:720px;margin-inline:auto}
+.section-heading{text-align:center;font-size:2rem;font-weight:700;margin-bottom:1.5rem;position:relative}
+.section-heading::after{content:'';width:60px;height:4px;background:var(--sun);display:block;margin:12px auto 0;border-radius:2px}
+.btn{display:inline-block;padding:.7rem 2rem;border-radius:50px;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+.btn-primary{background:#fff;color:var(--navy)}.btn-accent{background:var(--sun);color:var(--navy)}.small-btn{padding:.55rem 1.4rem;font-size:.9rem}
+.card{background:var(--card);padding:1.5rem;border-radius:var(--rad);box-shadow:var(--shadow)}.card h3{margin:.6rem 0;font-size:1.1rem;font-weight:700}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.metric-card{background:var(--card);padding:1.6rem;border-radius:var(--rad);box-shadow:var(--shadow);text-align:center}.metric-card .num{font-size:1.7rem;font-weight:700;color:var(--aqua);display:block;margin-bottom:.4rem}
+.about-table{width:100%;border-collapse:collapse}.about-table th,.about-table td{border:1px solid rgba(0,0,0,.08);padding:1rem}.about-table th{background:var(--lime);color:#fff;width:180px}
+.products .product-card{background:var(--card);padding:1.3rem;border-radius:var(--rad);box-shadow:var(--shadow)}.products img{border-radius:var(--rad) var(--rad) 0 0;margin-bottom:.6rem}
+.product-card .tag{display:inline-block;margin-top:.5rem;background:var(--aqua);color:#fff;padding:.2rem .6rem;border-radius:4px;font-size:.75rem}
+.career-card{display:flex;flex-direction:column}.career-card img{height:160px;object-fit:cover}
+.bullet{list-style:disc;margin-left:1.2rem;line-height:1.8}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.contact-form .field{display:flex;flex-direction:column}.contact-form .span2{grid-column:span 2}
+.contact-form input,.contact-form textarea{margin-top:.4rem;padding:.8rem;border:1px solid rgba(0,0,0,.1);border-radius:var(--rad)}
+.news-item{padding:1rem 0;border-bottom:1px solid rgba(0,0,0,.08)}.news-item time{font-weight:700;color:var(--lime)}
+.site-footer{background:var(--navy);color:#fff;padding:1rem;text-align:center;font-size:.85rem}
+[data-fade]{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.22,.61,.36,1)}.show{opacity:1;transform:none}
+@media(max-width:600px){.hero-title{font-size:1.9rem}}
+@keyframes slideUp{0%{opacity:0;transform:translateY(60px)}100%{opacity:1;transform:none}}
+
+/* ------ v6 fixes ------ */
+main{padding-bottom:3rem;}
+.section-bottom{margin-bottom:3rem;}
+.card, .metric-card, .product-card, .career-card{margin-bottom:1.5rem;}
+img{background:#e5e5e5;} /* fallback bg */
+footer{margin-top:2.5rem;}
+
+/* --- v7 tweaks --- */
+.btn{margin-top:.6rem;}
+.hero .btn{margin-top:1.2rem;}
+.nav.open{position:absolute;}
+body.open-nav main, body.open-nav section:first-of-type{filter:blur(1px);}
+@media(max-width:760px){
+  #global-nav.open{padding-top:.5rem;}
+}
+
+.career-card img{transition:transform .4s cubic-bezier(.25,.8,.25,1);}
+.career-card:hover img{transform:scale(1.05);}
+
+/* v11 layout spacing */
+main, section:not(.hero){margin-top:3rem;}
+header + section.hero{margin-top:0;}
+
+/* v12 spacing */
+main{padding-top:2rem;}
+.nav a{padding:.75rem 1.2rem;}
+@media(max-width:760px){
+  #global-nav.open .nav a{padding:1.2rem;}
+}
+
+/* v13 mobile improvements */
+@media(max-width:480px){
+  .hero{padding:4rem 1rem 5rem;}
+  .grid3,.grid2{grid-template-columns:1fr;}
+  .nav{flex-direction:column;gap:0;}
+  .nav a{padding:1rem;}
+  .metric-card{padding:1.2rem;}
+  .product-card,.career-card{padding:1rem;}
+}
+
+/* v14 readability */
+body,p,li{line-height:1.8;}
+.career-card p{margin-bottom:.6rem;}
+
+/* v15 UI tweaks */
+.nav a:hover{background:rgba(255,255,255,.1);border-radius:6px;}
+.card:hover{transform:translateY(-6px) scale(1.02);transition:.3s;}
+
+/* v16 product animations */
+@keyframes floatUp{0%{transform:translateY(0)}100%{transform:translateY(-4px)}}
+.product-card{transition:transform .3s,box-shadow .3s;}
+.product-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 8px 20px rgba(0,0,0,.12);animation:floatUp .3s ease-out;}
+
+/* v17 mobile polish */
+body.nav-open{overflow:hidden;}
+@media(max-width:480px){
+  .hero-title{font-size:1.8rem;}
+  .lead{font-size:1rem;}
+  .metric-card .num{font-size:1.5rem;}
+  .nav a{padding:1rem 1.2rem;}
+}
+
+html{scroll-behavior:smooth;}
+.nav a.active{background:rgba(255,255,255,.15);border-radius:6px;}
+
+/* accordion */
+.acc-btn{width:100%;text-align:left;background:var(--card);padding:1rem;font-weight:700;border:none;border-radius:var(--rad);box-shadow:var(--shadow);margin-bottom:.5rem;cursor:pointer;}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1rem;background:var(--card);border-radius:var(--rad);}
+.acc-item.active .acc-panel{padding:1rem;max-height:160px;}
+
+.tabs{display:flex;gap:.5rem;margin-bottom:1rem;}
+.tab{padding:.5rem 1rem;border:1px solid var(--aqua);background:#fff;color:var(--navy);cursor:pointer;border-radius:20px;}
+.tab.active,.tab:hover{background:var(--aqua);color:#fff;}
+
+/* v24 accordion enhance */
+.acc-btn{position:relative;padding-right:2rem;}
+.acc-btn::after{content:'+';position:absolute;right:1rem;transition:transform .3s;font-weight:700;}
+.acc-item.active .acc-btn::after{transform:rotate(45deg);}
+.acc-item.active .acc-panel{max-height:260px;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+/* benefits card hover */
+.benefits .card:hover{box-shadow:0 8px 18px rgba(0,0,0,.12);transform:translateY(-4px);transition:.3s;}
+
+/* v25 FAQ & benefits visuals */
+.acc-btn{background:linear-gradient(135deg,var(--aqua),var(--lime));color:#fff;}
+.acc-panel{background:#f9ffff;}
+.acc-item.active .acc-btn{background:var(--lime);}
+.benefits .card{transition:transform .3s,box-shadow .3s;border-left:6px solid var(--aqua);}
+.benefits .card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 24px rgba(0,0,0,.15);}
