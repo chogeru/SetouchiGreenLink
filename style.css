@@ -120,3 +120,26 @@ html{scroll-behavior:smooth;}
 .acc-item.active .acc-btn{background:var(--lime);}
 .benefits .card{transition:transform .3s,box-shadow .3s;border-left:6px solid var(--aqua);}
 .benefits .card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 24px rgba(0,0,0,.15);}
+
+/* v28 mobile nav fixes, table & form responsiveness */
+@media(max-width:760px){
+  /* hamburger */
+  .hamburger{display:flex;flex-direction:column;gap:5px;width:28px;height:24px;justify-content:center;background:none;border:none;cursor:pointer;z-index:999}
+  .hamburger span{display:block;height:3px;background:#fff;border-radius:3px;width:100%;}
+  /* off‑canvas nav */
+  #global-nav{position:fixed;inset:0 0 0 -100%;width:72%;max-width:300px;background:var(--navy);padding-top:5rem;height:100vh;transition:transform .3s ease;transform:translateX(-100%);overflow-y:auto;}
+  #global-nav.open{transform:translateX(0);}
+  body.nav-open{overflow:hidden;}
+  .nav{flex-direction:column;gap:0;}
+  .nav a{display:block;padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.05);}
+}
+
+@media(max-width:480px){
+  /* contact form stacked */
+  .contact-form{grid-template-columns:1fr;gap:1rem;}
+  .contact-form .span2{grid-column:span 1;}
+  /* about table -> stacked list */
+  .about-table,.about-table tbody,.about-table tr,.about-table th,.about-table td{display:block;width:100%;}
+  .about-table th{font-weight:700;margin-top:1rem;}
+  .about-table tr{border-bottom:1px solid #e5e5e5;padding-bottom:.8rem;}
+}
